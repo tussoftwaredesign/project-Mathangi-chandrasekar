@@ -1,0 +1,19 @@
+package pg1.java;
+
+public class stringcomp {
+
+	public static void main(String[] args) {
+		String a="two";
+		String b="two";
+		if (a.equals(b))
+		{
+		  System.out.println("true");
+		}
+	    else
+		  {
+			  System.out.println("False");
+		  }
+
+	}
+
+}
