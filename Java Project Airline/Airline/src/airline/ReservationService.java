@@ -19,6 +19,11 @@ public class ReservationService implements Reservation {
             totalPrice *= 2;
         }
 
+        totalPrice = (pricePerAdult * numAdults) + (pricePerChild * numChildren);
+        if (isRoundTrip) {
+            totalPrice *= 2; // Double the price for a round trip
+        }
+
 
         Ticket ticket = new Ticket(passenger, flight, numAdults, numChildren, totalPrice, true);
         tickets.add(ticket);
@@ -38,5 +43,8 @@ public class ReservationService implements Reservation {
         System.out.println("Matching tickets have been canceled.");
     }
 }
+
+
+
 
 

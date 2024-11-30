@@ -39,6 +39,9 @@ public class Airline {
             int numAdults = scanner.nextInt();
             System.out.print("Enter Number of Children: ");
             int numChildren = scanner.nextInt();
+            System.out.print("Is this a single trip or a round trip? (single/round): ");
+            String tripType = scanner.nextLine().trim().toLowerCase();
+            boolean isRoundTrip = tripType.equals("round");
 
             reservationService.reserve(passenger, flight, numAdults, numChildren, false);
         } catch (Exception e) {
