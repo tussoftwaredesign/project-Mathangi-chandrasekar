@@ -1,5 +1,4 @@
 package airline;
-import airline.interfaces.Reservation;
 
 import java.util.ArrayList;
 import java.util.List;
