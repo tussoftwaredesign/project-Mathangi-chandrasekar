@@ -1,19 +1,46 @@
 package airline;
-class FrequentFlyer extends Passenger {
-    private int frequentFlyerPoints;
 
-    public FrequentFlyer(String name, int age, String email, String mobileNumber, int frequentFlyerPoints)
-    {
-        super(name, age, email, mobileNumber);
+public class FrequentFlyer {
+    private final Passenger passenger;
+    private final int frequentFlyerPoints;
+
+
+    public FrequentFlyer(String name, int age, String email, String mobileNumber, int frequentFlyerPoints) {
+        this.passenger = new Passenger(name, age, email, mobileNumber);
         this.frequentFlyerPoints = frequentFlyerPoints;
     }
+
+
+    public String getName() {
+        return passenger.name();
+    }
+
+    public int getAge() {
+        return passenger.age();
+    }
+
+    public String getEmail() {
+        return passenger.email();
+    }
+
+    public String getMobileNumber() {
+        return passenger.mobileNumber();
+    }
+
 
     public int getFrequentFlyerPoints() {
         return frequentFlyerPoints;
     }
 
+    // Customized toString to include frequent flyer points
     @Override
-    public String getName() {
-        return "Frequent Flyer: " + super.getName();
+    public String toString() {
+        return "FrequentFlyer{" +
+                "name='" + getName() + '\'' +
+                ", age=" + getAge() +
+                ", email='" + getEmail() + '\'' +
+                ", mobileNumber='" + getMobileNumber() + '\'' +
+                ", frequentFlyerPoints=" + frequentFlyerPoints +
+                '}';
     }
 }

@@ -19,4 +19,24 @@ public class Passenger
     public int getAge() { return age; }
     public String getEmail() { return email; }
     public String getMobileNumber() { return mobileNumber; }
+
+    public String mobileNumber()
+    {
+        return mobileNumber;
+    }
+
+    public String email()
+    {
+        return email;
+    }
+
+    public int age()
+    {
+        return age;
+    }
+
+    public String name()
+    {
+        return name;
+    }
 }

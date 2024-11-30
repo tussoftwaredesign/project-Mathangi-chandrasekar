@@ -1,9 +1,13 @@
 package airline;
 import java.time.LocalDateTime;
+
 public class Flight {
     private Destination destination;
     private LocalDateTime departureTime;
     private FlightStatus status;
+    public Flight(Destination destination) {
+        this(destination, LocalDateTime.now());
+    }
 
     public Flight(Destination destination, LocalDateTime departureTime) {
         this.destination = destination;

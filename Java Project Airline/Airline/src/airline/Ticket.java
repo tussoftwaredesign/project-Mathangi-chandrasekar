@@ -1,37 +1,59 @@
 package airline;
-public class Ticket {
-    private Passenger passenger;
-    private Flight flight;
-    private int totalPrice;
-    private boolean isConfirmed;
 
-    public Ticket(Passenger passenger, Flight flight, int totalPrice) {
+public final class Ticket {
+    private final Passenger passenger;
+    private final Flight flight;
+    private final int numAdults;
+    private final int numChildren;
+    private final int totalPrice;
+    private final boolean isConfirmed;
+
+    public Ticket(Passenger passenger, Flight flight, int numAdults, int numChildren, int totalPrice, boolean isConfirmed) {
         this.passenger = passenger;
         this.flight = flight;
+        this.numAdults = numAdults;
+        this.numChildren = numChildren;
         this.totalPrice = totalPrice;
-        this.isConfirmed = false;
+        this.isConfirmed = isConfirmed;
     }
 
-    public Passenger getPassenger() { return passenger; }
-    public Flight getFlight() { return flight; }
-    public int getTotalPrice() { return totalPrice; }
-
-    public void confirmTicket() {
-        isConfirmed = true;
-        System.out.println("Your ticket is confirmed.");
-        printTicket();
+    public Passenger getPassenger() {
+        return passenger;
     }
 
-    public void cancelTicket() {
-        isConfirmed = false;
-        System.out.println("Your ticket is canceled.");
+    public Flight getFlight() {
+        return flight;
     }
 
-    public void printTicket() {
-        System.out.println("Ticket for " + passenger.getName() + " to " + flight.getDestination() + ":");
-        System.out.println("Flight Number: " + flight.getFlightNumber());
-        System.out.println("Date of Travel: " + flight.getDepartureTime().toLocalDate());
-        System.out.println("Time of Travel: " + flight.getDepartureTime().toLocalTime());
-        System.out.println("Total Price: €" + totalPrice);
+    public int getNumAdults() {
+        return numAdults;
+    }
+
+    public int getNumChildren() {
+        return numChildren;
+    }
+
+    public int getTotalPrice() {
+        return totalPrice;
+    }
+
+    public boolean isConfirmed() {
+        return isConfirmed;
+    }
+
+    @Override
+    public String toString() {
+        int pricePerAdult = flight.getDestination().getPricePerPerson();
+        int pricePerChild = pricePerAdult / 2;
+
+        return "Ticket Details:\n" +
+                "-------------------\n" +
+                "Passenger Name: " + passenger.name() + "\n" +
+                "Destination: " + flight.getDestination() + "\n" +
+                "Flight Number: " + flight.getFlightNumber() + "\n" +
+                "Adults: " + numAdults + " x €" + pricePerAdult + " = €" + (numAdults * pricePerAdult) + "\n" +
+                "Children: " + numChildren + " x €" + pricePerChild + " = €" + (numChildren * pricePerChild) + "\n" +
+                "Total Price: €" + totalPrice + "\n" +
+                "Confirmed: " + (isConfirmed ? "Yes" : "No") + "\n";
     }
 }

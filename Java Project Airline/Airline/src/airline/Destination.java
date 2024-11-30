@@ -14,6 +14,11 @@ public enum Destination {
         this.flightNumber = flightNumber;
     }
 
-    public int getPricePerPerson() { return pricePerPerson; }
-    public String getFlightNumber() { return flightNumber; }
+    public int getPricePerPerson() {
+        return pricePerPerson;
+    }
+
+    public String getFlightNumber() {
+        return flightNumber;
+    }
 }
