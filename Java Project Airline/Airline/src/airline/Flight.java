@@ -8,13 +8,11 @@ public class Flight {
     public Flight(Destination destination) {
         this(destination, LocalDateTime.now());
     }
-
     public Flight(Destination destination, LocalDateTime departureTime) {
         this.destination = destination;
         this.departureTime = departureTime;
         this.status = FlightStatus.ON_TIME;
     }
-
     public String getFlightNumber() {
         return destination.getFlightNumber();
     }
