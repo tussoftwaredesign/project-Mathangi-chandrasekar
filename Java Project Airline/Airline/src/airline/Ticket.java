@@ -1,59 +1,46 @@
 package airline;
 
 public final class Ticket {
-    private final Passenger passenger;
-    private final Flight flight;
-    private final int numAdults;
-    private final int numChildren;
-    private final int totalPrice;
-    private final boolean isConfirmed;
+    private final Passenger passenger; // Base class reference for Passenger or FrequentFlyer
+    private final Flight flight;       // Flight details
+    private final int totalPrice;      // Total ticket price
 
-    public Ticket(Passenger passenger, Flight flight, int numAdults, int numChildren, int totalPrice, boolean isConfirmed) {
+    public Ticket(Passenger passenger, Flight flight, int totalPrice) {
         this.passenger = passenger;
         this.flight = flight;
-        this.numAdults = numAdults;
-        this.numChildren = numChildren;
         this.totalPrice = totalPrice;
-        this.isConfirmed = isConfirmed;
     }
 
+    // Getter for Passenger
     public Passenger getPassenger() {
         return passenger;
     }
 
+    // Getter for Flight
     public Flight getFlight() {
         return flight;
     }
 
-    public int getNumAdults() {
-        return numAdults;
-    }
-
-    public int getNumChildren() {
-        return numChildren;
-    }
-
+    // Getter for Total Price
     public int getTotalPrice() {
         return totalPrice;
     }
 
-    public boolean isConfirmed() {
-        return isConfirmed;
-    }
-
     @Override
     public String toString() {
+        // Use flight destination price details for breakdown
         int pricePerAdult = flight.getDestination().getPricePerPerson();
         int pricePerChild = pricePerAdult / 2;
 
+        // Generate detailed ticket information
         return "Ticket Details:\n" +
                 "-------------------\n" +
-                "Passenger Name: " + passenger.name() + "\n" +
+                "Passenger: " + passenger + "\n" + // Calls Passenger or FrequentFlyer toString()
                 "Destination: " + flight.getDestination() + "\n" +
                 "Flight Number: " + flight.getFlightNumber() + "\n" +
-                "Adults: " + numAdults + " x €" + pricePerAdult + " = €" + (numAdults * pricePerAdult) + "\n" +
-                "Children: " + numChildren + " x €" + pricePerChild + " = €" + (numChildren * pricePerChild) + "\n" +
-                "Total Price: €" + totalPrice + "\n" +
-                "Confirmed: " + (isConfirmed ? "Yes" : "No") + "\n";
+                "Total Price (Including Tax): €" + totalPrice + "\n";
     }
 }
+
+
+
