@@ -32,7 +32,6 @@ public class FrequentFlyer {
         return frequentFlyerPoints;
     }
 
-    // Customized toString to include frequent flyer points
     @Override
     public String toString() {
         return "FrequentFlyer{" +
