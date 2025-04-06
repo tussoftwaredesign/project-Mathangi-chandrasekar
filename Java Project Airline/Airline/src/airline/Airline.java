@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 public class Airline {
     public static void main(String[] args) {
-        System.out.print("Airline Details");
+        //System.out.print("Airline Details");
         Scanner scanner = new Scanner(System.in);
         ReservationService reservationService = new ReservationService();
         Reservation.greetUser();
@@ -17,7 +17,7 @@ public class Airline {
             System.out.print("Enter Email ID: ");
             String email = scanner.nextLine();
             System.out.print("Enter Mobile Number: ");
-            String mobileNumber = scanner.nextLine();
+            String mobileNumber = scanner.nex   tLine();
             Passenger passenger = new Passenger(name, age, email, mobileNumber);
             System.out.print("Choose Destination (IRELAND, INDIA, USA, UK, CHINA): ");
             Destination destination = switch (scanner.nextLine().toUpperCase()) {
