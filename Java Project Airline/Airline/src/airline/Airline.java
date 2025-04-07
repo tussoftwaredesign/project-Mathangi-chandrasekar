@@ -4,7 +4,6 @@ import java.util.Scanner;
 
 public class Airline {
     public static void main(String[] args) {
-        //System.out.print("Airline Details");
         Scanner scanner = new Scanner(System.in);
         ReservationService reservationService = new ReservationService();
         Reservation.greetUser();
