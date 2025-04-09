@@ -15,7 +15,7 @@ public class ReservationService implements Reservation {
     Supplier<Integer> taxPriceSupplier = () -> TAX_PRICE;
 
     // Function to calculate total price
-    Function<Ticket, Double> totalPriceFunction = ticket -> ticket.getTotalPrice() + taxPriceSupplier.get();
+    Function<Ticket, Double> totalPriceFunction = ticket -> (double) (ticket.getTotalPrice() + taxPriceSupplier.get());
 
     // Consumer to print a ticket
     Consumer<Ticket> printTicket = ticket -> System.out.println(ticket);

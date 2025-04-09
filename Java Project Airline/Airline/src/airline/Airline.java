@@ -12,20 +12,22 @@ public class Airline {
             String name = scanner.nextLine();
             System.out.print("Enter Passenger Age: ");
             int age = scanner.nextInt();
-            scanner.nextLine();
+            scanner.nextLine(); // Consume newline left-over
             System.out.print("Enter Email ID: ");
             String email = scanner.nextLine();
             System.out.print("Enter Mobile Number: ");
-            String mobileNumber = scanner.nex   tLine();
+            String mobileNumber = scanner.nextLine().trim(); // Trim to remove any extraneous spaces
+
             Passenger passenger = new Passenger(name, age, email, mobileNumber);
             System.out.print("Choose Destination (IRELAND, INDIA, USA, UK, CHINA): ");
-            Destination destination = switch (scanner.nextLine().toUpperCase()) {
+            String input = scanner.nextLine().toUpperCase().trim(); // Trim and convert input to upper case
+            Destination destination = switch (input) {
                 case "IRELAND" -> Destination.IRELAND;
                 case "INDIA" -> Destination.INDIA;
                 case "USA" -> Destination.USA;
                 case "UK" -> Destination.UK;
                 case "CHINA" -> Destination.CHINA;
-                default -> throw new IllegalArgumentException("Invalid destination.");
+                default -> throw new IllegalArgumentException("Invalid destination: " + input);
             };
 
             Flight flight = new Flight(destination, LocalDateTime.now());
@@ -33,7 +35,7 @@ public class Airline {
             int numAdults = scanner.nextInt();
             System.out.print("Enter Number of Children: ");
             int numChildren = scanner.nextInt();
-            scanner.nextLine();
+            scanner.nextLine(); // Consume newline left-over
             System.out.print("Is this a single trip or a round trip? (single/round): ");
             String tripType = scanner.nextLine().trim().toLowerCase();
             boolean isRoundTrip = tripType.equals("round");
@@ -46,6 +48,7 @@ public class Airline {
         }
     }
 }
+
 
 
 
