@@ -2,7 +2,11 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+<<<<<<< HEAD
+      <module fileurl="file://$PROJECT_DIR$/Reservation.iml" filepath="$PROJECT_DIR$/Reservation.iml" />
+=======
       <module fileurl="file://$PROJECT_DIR$/.idea/project-Mathangi-chandrasekar.iml" filepath="$PROJECT_DIR$/.idea/project-Mathangi-chandrasekar.iml" />
+>>>>>>> 067572365818c33f0ac75fc871c3677508f70209
     </modules>
   </component>
 </project>
